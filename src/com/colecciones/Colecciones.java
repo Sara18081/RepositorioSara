@@ -1,9 +1,16 @@
 package com.colecciones;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.ListIterator;
+import java.util.PriorityQueue;
+import java.util.Stack;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Colecciones {
@@ -94,7 +101,7 @@ public class Colecciones {
 		System.out.println("Tercer elemento: " + arrayEnteros.get(2));
 		
 		//recorrer con for
-		for (int i = 0; i <arrayEnteros.size();i++) { //for incremental
+		/*for (int i = 0; i <arrayEnteros.size();i++) { //for incremental
 			System.out.println(arrayEnteros.get(i));
 				}
 		for (int j = arrayEnteros.size(); j > 0; j--) { //for decremental
@@ -102,13 +109,31 @@ public class Colecciones {
 				}
 		
 		//recorrer con for each
-		for (int elemento:arrayEnteros) {
-			System.out.println(elemento);
-		}
+		/*for (int elemento:arrayEnteros) {
+			System.out.println(elemento);}*/
+		
+		
+		//Ejemplo Iterator 
+		/*Iterator<Integer> iterador = arrayEnteros.iterator () ;
+		while (iterador.hasNext()) { // iterator
+		System.out.println(iterador.next());
+		}*/
+		
+		/*Iterator<Integer> iterador = arrayEnteros.iterator () ;
+		iterador.forEachRemaining(elemento -> { // iterator y forEachRemaining
+		System.out.println(elemento);
+		});*/
+		
+		/*//Para recorridos inversos se usa el listiterator
+		ListIterator<Integer> listaIterador = arrayEnteros.listIterator (arrayEnteros.size () );
+		while (listaIterador. hasPrevious () ) { // listIterator
+		Integer elemento = listaIterador. previous () ;
+		System.out.println (elemento) ;
+		}*/
 	}
 	
-	/*public void methodArrayListTrd () {
-		ArrayList<ArrayList<ArrayList>> array3D = new ArrayList<>();
+	public void methodArrayListTrd () {
+		ArrayList<ArrayList<ArrayList<Object>>> array3D = new ArrayList<>();
 		array3D.add(new ArrayList<>());
 		array3D.add(new ArrayList<>());
 		array3D.get(0).add(new ArrayList<>());
@@ -121,5 +146,82 @@ public class Colecciones {
 		array3D.get(1).get(0).add("cadena2");
 		array3D.get(1).get(1).add(123);
 		array3D.get(1).get(2).add('Ç');
-	}*/
+		
+		for (int i = 0; i < array3D.size(); i++) {
+		    for (int j = 0; j < array3D.get(i).size(); j++) {
+		        for (int k = 0; k < array3D.get(i).get(j).size(); k++) {
+		            System.out.println("[" + i + "][" + j + "][" + k + "] = "
+		                    + array3D.get(i).get(j).get(k));
+		        }
+		    }
+		}
+	}
+	
+	public void methodStack () {
+		Stack<String> st = new Stack();
+		st.push ("Prueba");st.push("de");st.push("metodo");st.push("search");
+		st.push("en");st.push("una");st.push("cola");st.push("stack");
+		System.out.println ("Posicion 'cola': "+st.search("Prueba"));// No empieza desde la posiciòn 
+	}
+	
+	public void methodpriorityQueue() {
+		PriorityQueue<Integer> numeros = new PriorityQueue<> () ;
+		// Encolando elementos
+		numeros.add(22);numeros.add(11);numeros.add(30);
+		numeros.add(25);numeros.add(11);numeros.add(6);
+		// Desencolando elementos segun han sido ordenados
+		while (!numeros.isEmpty()) {
+		System.out.println(numeros.remove());
+		}
+	}
+	
+	public void methodArrayDeque() {
+		ArrayDeque<String> nombres = new ArrayDeque<> ();
+		// Añadiendo elementos
+		nombres.add ("Ana");	// Ana
+		nombres.add("Zoe"); 	// Ana Zoe
+		nombres.push ("Luis"); 	// Luis Ana Zoe
+		nombres.add("Luz"); 	// Luis Ana Zoe Luz 
+		nombres.push ("Piero");	// Piero Luis Ana Zoe Luz
+		nombres.push ("Vanesa");// Vanesa Piero Luis Ana Zoe Luz
+		while (!nombres.isEmpty()) {
+		System.out.println(nombres.pop());
+		}
+	}
+	
+	public void methodHashMap() {
+		HashMap<Integer, String> hashMap = new HashMap<> ();
+		hashMap.put (1, "1");
+		hashMap.put (3, "3");
+		hashMap.put (4, "4");
+		hashMap.put (2, "2");
+		hashMap.put (5, "5");
+		System.out.println(hashMap.values());
+	}
+	
+	public void methodLinkedHashMap() {
+		LinkedHashMap<Integer, String> linkedHashMap = new LinkedHashMap<>();
+		linkedHashMap.put (1, "1");
+		linkedHashMap.put (3, "3");
+		linkedHashMap.put (4, "4");
+		linkedHashMap.put (2, "2");
+		linkedHashMap.put (5, "5");
+		System.out.println(linkedHashMap.values());
+	}
+	
+	public void methodTreeMap() {
+		TreeMap<Integer,String> puntuaciones = new TreeMap<> () ;
+		puntuaciones.put (8, "Notable alto");
+		puntuaciones.put (5, "Aprobado");
+		puntuaciones.put (10,"Matricula H.");
+		puntuaciones.put (6, "Bien");
+		puntuaciones.put (9, "Sobresaliente");
+		puntuaciones.put (7, "Notable");
+		puntuaciones.entrySet () .forEach ( (m) -> {
+			System.out.println(m.getKey() + " " + m.getValue());
+		});
+		puntuaciones.replace (7, "Notable", "Notable bajo") ;
+		System.out.println (puntuaciones.values());
+		System.out.println ("Por debajo de "+puntuaciones.firstKey() + " es suspenso") ;
+	}
 }

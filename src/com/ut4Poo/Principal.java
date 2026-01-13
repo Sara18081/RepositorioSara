@@ -6,7 +6,7 @@ public class Principal {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-			//Persona per1 = new Persona("12345678Z", "Pepito", "Primer apel", "Segundo Apell", "11/25/2000", Parentesco.padre);
+		//Persona per1 = new Persona("12345678Z", "Pepito", "Primer apel", "Segundo Apell", "11/25/2000", Parentesco.padre);
 		
 		//System.out.println(per1.toString());
 		//per1.setName("656565");
@@ -59,7 +59,14 @@ public class Principal {
 		//colecciones.methodLinkHashSet();
 		//colecciones.methodTreeSet();
 		//colecciones.methodTreeSetPersona();
-		colecciones.methodArrayList();
+		//colecciones.methodArrayList();
+		//colecciones.methodArrayListTrd();
+		colecciones.methodStack();
+		//colecciones.methodpriorityQueue();
+		//colecciones.methodArrayDeque();
+		//colecciones.methodHashMap();
+		//colecciones.methodLinkedHashMap();
+		//colecciones.methodTreeMap();
 		
 		/*TiemposMetTAD tiempos = new TiemposMetTAD ();
 		tiempos.metodoTiempoHashSet();
